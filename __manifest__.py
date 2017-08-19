@@ -1,22 +1,21 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "addons/igu_tradeerp/",
+    'name': "TradeERP Report To Odoo",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        TradeERP Report To Odoo""",
 
     'description': """
-        Long description of module's purpose
+        TradeERP Report To Odoo
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Andy Utomo ( Indoguna Utama ) ",
+    'website': "http://www.indoguna.id",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Misc',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
