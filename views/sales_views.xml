@@ -1,0 +1,86 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="trade_sales_view_tree">
+      <field name="name">trade.sales.view.tree</field>
+      <field name="model">trade.sales</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="docnum"/>
+          <field name="cardcode"/>
+          <field name="customer"/>
+          <field name="customer_company"/>
+          <field name="docdate"/>
+          <field name="itemname"/>
+          <field name="quantity"/>
+          <field name="linetotal"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="trade_sales_view_form">
+      <field name="name">trade.sales.view.form</field>
+      <field name="model">trade.sales</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="docnum"/>
+            <field name="cardcode"/>
+            <field name="customer"/>
+            <field name="customer_company"/>
+            <field name="docdate"/>
+            <field name="itemname"/>
+            <field name="quantity"/>
+            <field name="linetotal"/>
+          </group>
+        </form>
+      </field>
+    </record>
+      <record model="ir.ui.view" id="trade_sales_view_pivot">
+      <field name="name">trade.sales.view.pivot</field>
+      <field name="model">trade.sales</field>
+      <field name="arch" type="xml">
+        <pivot string="Sales Analysis">  
+            <field name="u_subgroup" type="row"/>
+            <field name="iyear" type="col"/>
+            <field name="quantity" type="measure"/>
+            <field name="linetotal" type="measure"/>
+        </pivot>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="trade_sales_action">
+      <field name="name">sales</field>
+      <field name="res_model">trade.sales</field>
+      <field name="view_mode">tree,form,pivot</field>
+    </record>
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="addons/igu_tradeerp/.action_server"><field name="name">addons/igu_tradeerp/ server</field><field name="model_id" ref="model_addons/igu_tradeerp/_addons/igu_tradeerp/"/><field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field></record>
+    -->
+    <!-- Top menu item -->
+<menuitem name="Analisis Report (Sales)" id="trade_smenuroot"/>
+    
+      <menuitem name="sales" id="sales_menuroot" parent ="trade_smenuroot" />
+        <menuitem name="sales Entry" id="sales_menu_entry" parent="sales_menuroot" action="trade_sales_action"/>
+ <!--
+<menuitem name="Analisis Report (Sales)" id="trade_mmenuroot"/>
+   <menuitem name="purchase" id="purchase_menuroot" parent ="trade_mmenuroot" />
+        <menuitem name="Purchase Entry" id="sales_menu_entry" parent="sales_menuroot" action="trade_purchase_action"/>        
+    menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="addons/igu_tradeerp/.menu_1" parent="addons/igu_tradeerp/.menu_root"/><menuitem name="Menu 2" id="addons/igu_tradeerp/.menu_2" parent="addons/igu_tradeerp/.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="addons/igu_tradeerp/.menu_1_list" parent="addons/igu_tradeerp/.menu_1" action="addons/igu_tradeerp/.action_window"/><menuitem name="Server to list" id="addons/igu_tradeerp/" parent="addons/igu_tradeerp/.menu_2" action="addons/igu_tradeerp/.action_server"/>
+    -->
+  </data>
+</odoo>
